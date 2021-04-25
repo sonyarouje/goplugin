@@ -1,12 +1,13 @@
 package main
 
-import "fmt"
+import "goplugin/writers/common"
 
 type Plugin struct {
 }
 
-func (d Plugin) Write() {
-	fmt.Println("Hello world")
+func (d Plugin) Write(plugger common.Plugger) {
+	// fmt.Println("Hello world")
+	plugger.Print("Hello world")
 }
 
 var P Plugin

@@ -11,7 +11,19 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	util := NewPluginUtils()
 	for _, w := range ws {
-		w.Write()
+		w.Write(util)
 	}
+}
+
+type PluginUtil struct {
+}
+
+func NewPluginUtils() PluginUtil {
+	return PluginUtil{}
+}
+
+func (p PluginUtil) Print(a ...interface{}) {
+	fmt.Println(a...)
 }
